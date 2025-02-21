@@ -64,7 +64,7 @@ public class ClientHandler implements Runnable {
     private void handleGetRequest(OutputStream out, String path) {
         try {
             if (path.equals("/")) {
-                path = "/www/index.html";
+                path = "/index.html";
             }
             String filePath = wwwDir + path;
             Path path1 = Paths.get(filePath);
