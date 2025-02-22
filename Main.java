@@ -4,7 +4,7 @@ import java.net.Socket;
 
 public class Main {
     private static final short PORT = 3030;
-    private static final String WWW_DIR = "C:\\Users\\pedro\\IdeaProjects\\untitled-1\\src\\www";
+    private static final String WWW_DIR = "src" + File.separator + "www";
 
     public static void main(String[] args) {
         try (ServerSocket serverSocket = new ServerSocket(PORT)) {
