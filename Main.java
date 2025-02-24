@@ -3,7 +3,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Main {
-    private static final short PORT = 3030;
+    private static final short PORT = 8080;
     private static final String WWW_DIR = "src" + File.separator + "www";
 
     public static void main(String[] args) {
