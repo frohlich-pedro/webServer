@@ -44,6 +44,12 @@ public class ClientHandler implements Runnable {
                     case "DELETE":
                         handleDeleteRequest(out, path);
                         break;
+                    case "PATCH":
+                        handlePatchRequest(in, out, path);
+                        break;
+                    case "HEAD":
+                        handleHeadRequest(out, path);
+                        break;
                     default:
                         sendNotFound(out);
                         break;
@@ -128,6 +134,50 @@ public class ClientHandler implements Runnable {
                     "DELETE request to " + path + " received.";
             out.write(response.getBytes());
             out.flush();
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    private void handlePatchRequest(BufferedReader in, OutputStream out, String path) {
+        try {
+            StringBuilder payload = new StringBuilder();
+            String line;
+            while ((line = in.readLine()) != null && !line.isEmpty()) {
+                payload.append(line).append("\n");
+            }
+
+            String response = "HTTP/1.1 200 OK\r\n" +
+                    "Content-Type: text/plain\r\n" +
+                    "Connection: close\r\n" +
+                    "\r\n" +
+                    "PATCH request to " + path + " received. Payload: " + payload;
+            out.write(response.getBytes());
+            out.flush();
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    private void handleHeadRequest(OutputStream out, String path) {
+        try {
+            if (path.equals("/")) {
+                path = "/index.html";
+            }
+            String filePath = wwwDir + path;
+            Path path1 = Paths.get(filePath);
+            if (Files.exists(path1)) {
+                String contentType = Files.probeContentType(path1);
+                String response = "HTTP/1.1 200 OK\r\n" +
+                        "Content-Type: " + contentType + "\r\n" +
+                        "Content-Length: " + Files.size(path1) + "\r\n" +
+                        "Connection: close\r\n" +
+                        "\r\n";
+                out.write(response.getBytes());
+                out.flush();
+            } else {
+                sendNotFound(out);
+            }
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
