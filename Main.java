@@ -27,13 +27,13 @@ public class Main {
         button0 = new JButton("Start Server");
         button0.setBounds(FRAME_WIDTH / 2 - BUTTON_WIDTH / 2, FRAME_HEIGHT / 2 - BUTTON_HEIGHT / 2 - 45, BUTTON_WIDTH, BUTTON_HEIGHT);
         button0.addActionListener(e -> startServer());
-        button0.setFont(new FontUIResource("arial", 1, 15));
+        button0.setFont(new FontUIResource("arial", 1, 14));
         frame.add(button0);
 
         button1 = new JButton("Stop Server");
         button1.setBounds(FRAME_WIDTH / 2 - BUTTON_WIDTH / 2, FRAME_HEIGHT / 2 - BUTTON_HEIGHT / 2 + 15, BUTTON_WIDTH, BUTTON_HEIGHT);
         button1.addActionListener(e -> stopServer());
-        button1.setFont(new FontUIResource("arial", 1, 15));
+        button1.setFont(new FontUIResource("arial", 1, 14));
         frame.add(button1);
 
         frame.setVisible(true);
