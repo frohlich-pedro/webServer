@@ -138,7 +138,7 @@ public class ResponseHandler {
                     "Content-Type: text/plain\r\n" +
                     "Connection: close\r\n" +
                     "\r\n" +
-                    "<html>404, not found</html>";
+                    "404, Not Found.";
             out.write(response.getBytes());
             out.flush();
         } catch (IOException e) {
