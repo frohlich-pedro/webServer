@@ -54,12 +54,12 @@ public class Main {
                         thread.start();
                     } catch (IOException e) {
                         if (running) {
-                            System.err.println("Error accepting client connection: " + e.getMessage());
+                            System.err.println(e.getMessage());
                         }
                     }
                 }
             } catch (IOException e) {
-                System.err.println("Could not start server: " + e.getMessage());
+                System.err.println(e.getMessage());
             }
         }).start();
     }
