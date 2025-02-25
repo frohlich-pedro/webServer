@@ -13,33 +13,37 @@ public class RequestHandler {
         this.wwwDir = wwwDir;
     }
 
-    public void handleRequest() throws IOException {
-        String[] requestParts = requestLine.split(" ");
-        String method = requestParts[0];
-        String path = requestParts[1];
-
-        switch (method) {
-            case "GET":
-                handleGetRequest(path);
-                break;
-            case "POST":
-                handlePostRequest(path);
-                break;
-            case "PUT":
-                handlePutRequest(path);
-                break;
-            case "DELETE":
-                handleDeleteRequest(path);
-                break;
-            case "PATCH":
-                handlePatchRequest(path);
-                break;
-            case "HEAD":
-                handleHeadRequest(path);
-                break;
-            default:
-                ResponseHandler.sendNotFound(out);
-                break;
+    public void handleRequest() {
+        try {
+            String[] requestParts = requestLine.split(" ");
+            String method = requestParts[0];
+            String path = requestParts[1];
+    
+            switch (method) {
+                case "GET":
+                    handleGetRequest(path);
+                    break;
+                case "POST":
+                    handlePostRequest(path);
+                    break;
+                case "PUT":
+                    handlePutRequest(path);
+                    break;
+                case "DELETE":
+                    handleDeleteRequest(path);
+                    break;
+                case "PATCH":
+                    handlePatchRequest(path);
+                    break;
+                case "HEAD":
+                    handleHeadRequest(path);
+                    break;
+                default:
+                    ResponseHandler.sendNotFound(out);
+                    break;
+            }
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
         }
     }
 
