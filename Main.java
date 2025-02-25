@@ -2,14 +2,15 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
 
 public class Main {
     private static final short PORT = 8080;
-    private static final String WWW_DIR = "src" + File.separator + "www";
-    private static final int FRAME_WIDTH = 640;
-    private static final int FRAME_HEIGHT = 480;
+    private static final String WWW_DIR = "www";
+    private static final int FRAME_WIDTH = 320;
+    private static final int FRAME_HEIGHT = 240;
     private static final int BUTTON_WIDTH = 200;
-    private static final int BUTTON_HEIGHT = 75;
+    private static final int BUTTON_HEIGHT = 50;
 
     private static JFrame frame;
     private static JButton button0;
@@ -25,12 +26,14 @@ public class Main {
 
         button0 = new JButton("Start Server");
         button0.setBounds(FRAME_WIDTH / 2 - BUTTON_WIDTH / 2, FRAME_HEIGHT / 2 - BUTTON_HEIGHT / 2 - 45, BUTTON_WIDTH, BUTTON_HEIGHT);
-        button0.addActionListener(_ -> startServer());
+        button0.addActionListener(e -> startServer());
+        button0.setFont(new FontUIResource("arial", 1, 15));
         frame.add(button0);
 
         button1 = new JButton("Stop Server");
-        button1.setBounds(FRAME_WIDTH / 2 - BUTTON_WIDTH / 2, FRAME_HEIGHT / 2 - BUTTON_HEIGHT / 2 + 45, BUTTON_WIDTH, BUTTON_HEIGHT);
-        button1.addActionListener(_ -> stopServer());
+        button1.setBounds(FRAME_WIDTH / 2 - BUTTON_WIDTH / 2, FRAME_HEIGHT / 2 - BUTTON_HEIGHT / 2 + 15, BUTTON_WIDTH, BUTTON_HEIGHT);
+        button1.addActionListener(e -> stopServer());
+        button1.setFont(new FontUIResource("arial", 1, 15));
         frame.add(button1);
 
         frame.setVisible(true);
