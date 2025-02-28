@@ -32,7 +32,7 @@ public class Main {
             startServer();
             JOptionPane.showMessageDialog(frame, "Server Started at port: " + PORT);
         });
-        button0.setFont(new FontUIResource("arial", 0, 16));
+        button0.setFont(new FontUIResource("Comic Sans MS", 0, 18));
         frame.add(button0);
 
         button1 = new JButton("Stop Server");
@@ -41,7 +41,7 @@ public class Main {
             stopServer();
             JOptionPane.showMessageDialog(frame, "Server Stopped");
         });
-        button1.setFont(new FontUIResource("arial", 0, 16));
+        button1.setFont(new FontUIResource("Comic Sans MS", 0, 18));
         frame.add(button1);
 
         frame.setVisible(true);
