@@ -3,13 +3,12 @@ package src;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.file.Paths;
 import javax.swing.*;
 import javax.swing.plaf.FontUIResource;
 
 public class Main {
     private static final short PORT = 8080;
-    private static final String WWW_DIR = Paths.get(System.getProperty("user.dir"), "src", "www").toString();
+    private static final String WWW_DIR = "C:\\Users\\pedro\\IdeaProjects\\WebServer\\src\\www";
     private static final int FRAME_WIDTH = 320;
     private static final int FRAME_HEIGHT = 240;
     private static final int BUTTON_WIDTH = 200;
