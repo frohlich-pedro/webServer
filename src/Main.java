@@ -38,8 +38,11 @@ public class Main {
         button1 = new JButton("Stop Server");
         button1.setBounds(FRAME_WIDTH / 2 - BUTTON_WIDTH / 2, FRAME_HEIGHT / 2 - BUTTON_HEIGHT / 2 + 15, BUTTON_WIDTH, BUTTON_HEIGHT);
         button1.addActionListener(e -> {
-            stopServer();
-            JOptionPane.showMessageDialog(frame, "Server Stopped");
+            int response = JOptionPane.showConfirmDialog(frame, "Are you sure you want to close server?", ":(", JOptionPane.YES_NO_OPTION);
+            if (response == JOptionPane.YES_OPTION) {
+                stopServer();
+                JOptionPane.showMessageDialog(frame, "Server Stopped");
+            }
         });
         button1.setFont(new FontUIResource("Comic Sans MS", 0, 18));
         frame.add(button1);
