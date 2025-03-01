@@ -8,7 +8,7 @@ import javax.swing.plaf.FontUIResource;
 
 public class Main {
     private static final short PORT = 8080;
-    private static final String WWW_DIR = "C:\\Users\\pedro\\IdeaProjects\\WebServer\\src\\www";
+    private static final String WWW_DIR = "src" + File.separator + "www";
     private static final int FRAME_WIDTH = 320;
     private static final int FRAME_HEIGHT = 240;
     private static final int BUTTON_WIDTH = 200;
