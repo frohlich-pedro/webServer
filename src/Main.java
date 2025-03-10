@@ -40,7 +40,7 @@ public class Main {
         button1.addActionListener(e -> {
             int response = JOptionPane.showConfirmDialog(frame, "Are you sure you want to close server?", ":(", JOptionPane.YES_NO_OPTION);
             if (response == JOptionPane.YES_OPTION) {
-                stopServer();
+                running = false;
                 JOptionPane.showMessageDialog(frame, "Server Stopped");
             }
         });
@@ -70,9 +70,5 @@ public class Main {
                 System.err.println(e.getMessage());
             }
         }).start();
-    }
-
-    private static void stopServer() {
-        running = false;
     }
 }
